@@ -1,0 +1,9 @@
+aiogram==3.17.0
+aiofiles==23.2.1
+Pillow==10.3.0
+python-dotenv==1.0.1
+ffmpeg-python==0.2.0
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+httpx==0.28.1
+ultralytics>=8.0.0

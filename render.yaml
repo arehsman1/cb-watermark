@@ -1,0 +1,14 @@
+services:
+  - type: worker
+    name: branding-bot
+    runtime: python
+    plan: free
+    buildCommand: ./build.sh
+    startCommand: python bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: LOG_LEVEL
+        value: INFO
+      - key: BOT_TOKEN
+        sync: false  # Set manually in Render dashboard

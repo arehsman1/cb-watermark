@@ -1,0 +1,23 @@
+# Optional: enables LaMa AI inpainting for visually complex watermark
+# backgrounds (hair, foliage, faces, fabric, water, shadows, detailed
+# patterns). Without this installed, the bot automatically uses OpenCV
+# inpainting for everything — it still works, just with lower quality
+# results on complex backgrounds.
+#
+# Install with:
+#   pip install -r requirements-lama.txt
+#
+# Notes for a 4GB RAM / 2 vCPU VPS:
+#   - This pulls in torch + torchvision (CPU build), a few hundred MB
+#     of disk. First real use also downloads a ~200MB pretrained model
+#     (big-lama.pt) to a local cache — one-time, then reused.
+#   - Inference is CPU-only and takes a few seconds per image region,
+#     not per full image — still noticeably slower than OpenCV.
+#   - The bot lazy-loads the model per job and releases it immediately
+#     after, so it never sits resident in RAM between jobs.
+#   - If installing torch's default (larger) PyPI wheel is a concern,
+#     install the CPU-only wheel first from PyTorch's own index:
+#       pip install torch --index-url https://download.pytorch.org/whl/cpu
+#     then run this file — pip will see torch already satisfied.
+
+simple-lama-inpainting==0.1.2
